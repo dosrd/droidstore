@@ -15,7 +15,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
+/**
+ * Created by deji aladejebi on 29/08/2018.
+ */
 public class KeepDataEntityParamMap implements Serializable {
 
     private String responseInfo;
