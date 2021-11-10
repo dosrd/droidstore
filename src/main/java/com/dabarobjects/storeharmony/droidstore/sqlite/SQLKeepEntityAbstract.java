@@ -4,8 +4,9 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.util.Log;
 
-import com.dabarobjects.droid.utils.keep.KeepDataEntityAbstract;
-import com.dabarobjects.droid.utils.tools.CommonUtils;
+
+import com.dabarobjects.storeharmony.droidstore.KeepDataEntityAbstract;
+import com.dabarobjects.storeharmony.droidstore.KeepObjectUtil;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public abstract class SQLKeepEntityAbstract<T extends SQLKeepEntityAbstract<?>> 
 
                 }
                 if (ctype.equals(Date.class)) {
-                    pMap.put(datatype, CommonUtils.getTimestampForDate((Date) datai));
+                    pMap.put(datatype,  KeepObjectUtil.getTimestampForDate((Date) datai));
                 }
 
 
@@ -259,7 +260,7 @@ public abstract class SQLKeepEntityAbstract<T extends SQLKeepEntityAbstract<?>> 
                 }
                 if (ctype.equals(Date.class)) {
                     Long i2 = cursor.getLong(i);
-                    Date i5v = CommonUtils.getDateFromTimestamp(i2);
+                    Date i5v = KeepObjectUtil.getDateFromTimestamp(i2);
                     cf.set(this, i5v);
                 }
 

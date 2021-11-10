@@ -1,7 +1,6 @@
 package com.dabarobjects.storeharmony.droidstore.cloud;
 
-import com.dabarobjects.droid.utils.tools.MadexParserUtils;
-import com.dabarobjects.droid.utils.tools.ObjectHexUtils;
+import com.dabarobjects.storeharmony.droidstore.KeepObjectUtil;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -26,7 +25,7 @@ public final class CloudResponse implements Serializable {
     }
 
     public CloudResponse(String responseStr) {
-        this.responseMap = MadexParserUtils.stringToHashTable(responseStr);
+        this.responseMap = KeepObjectUtil.MadexParserUtils.stringToHashTable(responseStr);
         this.responseStr = responseStr;
     }
 
@@ -78,7 +77,7 @@ public final class CloudResponse implements Serializable {
     public Object getObjectMessage() {
         String objStr = (String) this.responseMap.get("OBJ");
         if (objStr != null) {
-            return ObjectHexUtils.stringInObjectLoader(objStr);
+            return KeepObjectUtil.stringInObjectLoader(objStr);
         }
         return null;
     }

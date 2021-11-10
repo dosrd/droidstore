@@ -1,5 +1,6 @@
 package com.dabarobjects.storeharmony.droidstore.cloud;
-import org.apache.commons.codec.binary.Base64;
+
+import android.util.Base64;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -133,7 +134,7 @@ public class CloudTransferOperation extends Thread
                 byte[] realPack = new byte[read];
                 System.arraycopy(buffer, 0, realPack, 0, read);
                 this.elapsedBytes += read;
-                String hexData = new String(Base64.encodeBase64(realPack));
+                String hexData = new String(Base64.encode(realPack,Base64.NO_WRAP));
 
                 String data = URLEncoder.encode("hex", "UTF-8") + "=" + URLEncoder.encode(hexData, "UTF-8");
                 data = data + "&packid=" + getFileTransferId();
@@ -247,7 +248,7 @@ public class CloudTransferOperation extends Thread
                 byte[] realPack = new byte[read];
                 System.arraycopy(buffer, 0, realPack, 0, read);
                 this.elapsedBytes += read;
-                String hexData = new String(Base64.encodeBase64(realPack));
+                String hexData = new String(Base64.encode(realPack,Base64.NO_WRAP));
 
                 String data = URLEncoder.encode("hex", "UTF-8") + "=" + URLEncoder.encode(hexData, "UTF-8");
                 data = data + "&packid=" + getFileTransferId();

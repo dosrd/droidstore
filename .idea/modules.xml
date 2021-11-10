@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/droidstore.iml" filepath="$PROJECT_DIR$/.idea/modules/droidstore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/droidstore.iml" filepath="$PROJECT_DIR$/.idea/modules/droidstore.iml" group="droidstore" />
     </modules>
   </component>
 </project>

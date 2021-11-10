@@ -1,6 +1,7 @@
 package com.dabarobjects.storeharmony.droidstore.cloud;
 
-import com.dabarobjects.droid.utils.keep.sqlite.SQLKeepEntityAbstract;
+
+import com.dabarobjects.storeharmony.droidstore.sqlite.SQLKeepEntityAbstract;
 
 public final class CloudContent extends SQLKeepEntityAbstract<CloudContent> {
 

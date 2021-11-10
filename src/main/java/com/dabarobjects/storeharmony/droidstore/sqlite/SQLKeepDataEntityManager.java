@@ -7,13 +7,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.dabarobjects.droid.utils.keep.KeepDataEntity;
+
+import com.dabarobjects.storeharmony.droidstore.KeepDataEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by dabarobjects on 26/04/2018.
+ * Created by deji aladejbei on 26/04/2018.
  */
 
 public class SQLKeepDataEntityManager<T> extends SQLiteOpenHelper {

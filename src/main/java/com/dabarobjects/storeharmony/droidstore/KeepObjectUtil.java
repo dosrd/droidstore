@@ -1,7 +1,9 @@
 package com.dabarobjects.storeharmony.droidstore;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.Field;
 import java.text.ParseException;
@@ -16,6 +18,55 @@ import java.util.Map;
 import java.util.Set;
 
 public class KeepObjectUtil {
+    public static byte[] decodeHexToBin(String hexData) {
+        if (hexData.length() % 2 != 0) {
+            return new byte[0];
+        }
+        byte[] hexArray = new byte[hexData.length() / 2];
+        char[] line = new char[2];
+        int shift = 0;
+        for (int i = 0; i <= hexData.length(); i++) {
+            if ((i > 0) && (i % 2 == 0)) {
+                byte b = (byte) Integer.parseInt(String.valueOf(line), 16);
+                hexArray[shift] = b;
+                line = new char[2];
+                shift++;
+                if (i == hexData.length()) {
+                    break;
+                }
+            }
+            line[(i % 2)] = hexData.charAt(i);
+        }
+        return hexArray;
+    }
+
+    public static Date getDateFromTimestamp(long time){
+        if(time == 0l){
+            return null;
+        }
+        Calendar c =
+                Calendar.getInstance();
+        c.setTimeInMillis(time);
+        return c.getTime();
+    }
+    public static long getTimestampForDate(Date d){
+        if(d == null){
+            return 0l;
+        }
+        return d.getTime();
+    }
+    public static Object stringInObjectLoader(String objDump) {
+        try {
+            byte[] bshdecoded = decodeHexToBin(objDump);
+            ByteArrayInputStream bin = new ByteArrayInputStream(bshdecoded);
+            ObjectInputStream objIn = new ObjectInputStream(bin);
+            Object message = objIn.readObject();
+            return message;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static String convertObjectToString(Object ops) {
         ByteArrayOutputStream outStream = null;
         ObjectOutputStream out = null;
